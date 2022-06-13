@@ -10,7 +10,7 @@
         </p>
     {% else %}
         <p>Wypełnij poniższy formularz, aby się zalogować. Jeżeli nie masz jeszcze konta, możesz je utworzyć
-        <a href="{% url 'register' %}">tutaj</a>.</p>
+            <a href="{% url 'register' %}">tutaj</a>.</p>
     {% endif %}
     <div class="login-form">
         <form action="{% url 'login' %}" method="post">
@@ -18,7 +18,16 @@
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}"/>
             <p><input type="submit" value="Zaloguj"></p>
+            <div class="social">
+                <ul>
+                    <li class="facebook"><a href="{% url "social:begin" "facebook" %}">Zaloguj się za pomocą konta
+                        Facebook</a>
+                    </li>
+                </ul>
+            </div>
         </form>
-    <p><a href="{% url 'password_reset' %}">Zapomniałeś hasła?</a></p>
+        <p><a href="{% url 'password_reset' %}">Zapomniałeś hasła?</a></p>
+
     </div>
+
 {% endblock %}

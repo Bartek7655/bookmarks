@@ -6,7 +6,6 @@ urlpatterns = [
     # Widoki logowania
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('', views.dashboard, name='dashboard'),
     path('register/', views.register, name='register'),
 
     # Adresy URL przeznaczone do obsługi zmiany hasła
@@ -30,4 +29,6 @@ urlpatterns = [
     path('reset/done/',
          auth_views.PasswordResetCompleteView.as_view(),
          name="password_reset_complete"),
+
+    path('edit/', views.edit, name='edit'),
 ]

@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -128,5 +130,15 @@ LOGOUT_URL = 'logout'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MEDIA_URL = '/media/'
-# TODO do dokończenia !!!
-#MEDIA_ROOT = Path
+MEDIA_ROOT = BASE_DIR.joinpath('media')
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.FacebookOAuth2',
+]
+
+ALLOWED_HOSTS = ['moja-witryna.pl', 'localhost', '127.0.0.1']
+
+SOCIAL_AUTH_FACEBOOK_KEY = "1047779019182654"
+SOCIAL_AUTH_FACEBOOK_KEY = "9d839200558d43c5d9430dbfbd383d0a"
