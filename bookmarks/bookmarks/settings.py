@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-
+from . import local_settings as key
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -136,9 +136,13 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
     'social.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 
 ALLOWED_HOSTS = ['moja-witryna.pl', 'localhost', '127.0.0.1']
 
-SOCIAL_AUTH_FACEBOOK_KEY = "1047779019182654"
-SOCIAL_AUTH_FACEBOOK_KEY = "9d839200558d43c5d9430dbfbd383d0a"
+SOCIAL_AUTH_FACEBOOK_KEY = key.SOCIAL_AUTH_FACEBOOK_KEY
+SOCIAL_AUTH_FACEBOOK_SECRET = key.SOCIAL_AUTH_FACEBOOK_SECRET
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = key.SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = key.SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
